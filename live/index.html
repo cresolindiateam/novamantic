@@ -1,0 +1,729 @@
+<!doctype html>
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html lang="en">
+
+<head>
+
+    <!-- Basic -->
+    <title>Online_Test</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8">
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="Margo - Responsive HTML5 Template">
+    <meta name="author" content="iThemesLab">
+
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css" type="text/css" media="screen">
+
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" media="screen">
+
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="css/responsive.css" media="screen">
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="css/animate.css" media="screen">
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="css/colors/red.css" title="red" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/jade.css" title="jade" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/green.css" title="green" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/blue.css" title="blue" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/beige.css" title="beige" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/cyan.css" title="cyan" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/orange.css" title="orange" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/peach.css" title="peach" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/pink.css" title="pink" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/purple.css" title="purple" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/sky-blue.css" title="sky-blue" media="screen" />
+    <link rel="stylesheet" type="text/css" href="css/colors/yellow.css" title="yellow" media="screen" />
+     <link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+
+    <!-- Margo JS  -->
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.migrate.js"></script>
+    <script type="text/javascript" src="js/modernizrr.js"></script>
+    <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="js/nivo-lightbox.min.js"></script>
+    <script type="text/javascript" src="js/jquery.isotope.min.js"></script>
+    <script type="text/javascript" src="js/jquery.appear.js"></script>
+    <script type="text/javascript" src="js/count-to.js"></script>
+    <script type="text/javascript" src="js/jquery.textillate.js"></script>
+    <script type="text/javascript" src="js/jquery.lettering.js"></script>
+    <script type="text/javascript" src="js/jquery.easypiechart.min.js"></script>
+    <script type="text/javascript" src="js/jquery.nicescroll.min.js"></script>
+    <script type="text/javascript" src="js/jquery.parallax.js"></script>
+    <script type="text/javascript" src="js/mediaelement-and-player.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        
+		<script src="js/modernizr.custom.js"></script>
+        
+<script type="text/javascript">
+ 
+$(window).scroll(function() {    
+    var scroll = $(window).scrollTop();
+ 
+    if (scroll >= 200) {  
+		  $(".navbar").addClass("fixednavbar");
+    } else 
+	{
+	   $(".navbar").removeClass("fixednavbar");
+	}
+ 
+}); //missing );
+
+ 
+</script>
+<script>
+			(function ( $ ) {
+				$.fn.CustomMap = function( options ) {
+					
+					var posLatitude = $('#map').data('position-latitude'),
+					posLongitude = $('#map').data('position-longitude');
+					
+					var settings = $.extend({
+						home: { latitude: posLatitude, longitude: posLongitude },
+						text: '<div class="map-popup"><h4>Web Development | ZoOm-Arts</h4><p>A web development blog for all your HTML5 and WordPress needs.</p></div>',
+						icon_url: $('#map').data('marker-img'),	
+						zoom: 15
+					}, options );
+					
+					var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
+					
+					return this.each(function() {	
+						var element = $(this);
+						
+						var options = {
+							zoom: settings.zoom,
+							center: coords,
+							mapTypeId: google.maps.MapTypeId.ROADMAP,
+							mapTypeControl: false,
+							scaleControl: false,
+							streetViewControl: false,
+							panControl: true,
+							disableDefaultUI: true,
+							zoomControlOptions: {
+								style: google.maps.ZoomControlStyle.DEFAULT
+							},
+							overviewMapControl: true,	
+						};
+						
+						var map = new google.maps.Map(element[0], options);
+						
+						var icon = { 
+							url: settings.icon_url, 
+							origin: new google.maps.Point(0, 0)
+						};
+						
+						var marker = new google.maps.Marker({
+							position: coords,
+							map: map,
+							icon: icon,
+							draggable: false
+						});
+						
+						var info = new google.maps.InfoWindow({
+							content: settings.text
+						});
+						
+						google.maps.event.addListener(marker, 'click', function() { 
+							info.open(map, marker);
+						});
+						
+						var styles = [{"featureType":"landscape","stylers":[{"saturation":-100},{"lightness":65},{"visibility":"on"}]},{"featureType":"poi","stylers":[{"saturation":-100},{"lightness":51},{"visibility":"simplified"}]},{"featureType":"road.highway","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"road.arterial","stylers":[{"saturation":-100},{"lightness":30},{"visibility":"on"}]},{"featureType":"road.local","stylers":[{"saturation":-100},{"lightness":40},{"visibility":"on"}]},{"featureType":"transit","stylers":[{"saturation":-100},{"visibility":"simplified"}]},{"featureType":"administrative.province","stylers":[{"visibility":"on"}]},{"featureType":"water","elementType":"labels","stylers":[{"visibility":"on"},{"lightness":-25},{"saturation":-100}]},{"featureType":"water","elementType":"geometry","stylers":[{"hue":"#ffff00"},{"lightness":-25},{"saturation":-97}]}];
+						
+						map.setOptions({styles: styles});
+					});
+
+};
+}( jQuery ));
+
+jQuery(document).ready(function() {
+	jQuery('#map').CustomMap();
+});
+</script>
+
+
+
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+        
+        
+        <!-- Start Header Section --> 
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+            
+            <!-- Start Top Bar -->
+            <!-- .top-bar -->
+            <!-- End Top Bar -->
+            
+            
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="index.html">
+                            <img alt="" src="images/margo.png">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <!-- Stat Search -->
+                        
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a  href="index.html">About</a>
+                                <ul class="dropdown">
+                                    
+                                    <li><a class="active" href="index.html">Who we are</a>
+                                    </li>
+                                    <li><a href="index-02.html">What we do</a>
+                                    </li>
+                                    <li><a href="index-03.html">Why us</a>
+                                    </li>
+                                   
+                                 
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="about.html">Centre Based Test</a>
+                                 <ul class="dropdown">
+                                    
+                                    <li><a class="active" href="index.html">Omr Based Test</a>
+                                    </li>
+                                   
+                                   
+                                 
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">System Based Test</a>
+                                
+                            </li>
+                            <li>
+                                <a href="portfolio-3.html">OMR Based Solution</a>
+                                
+                            </li>
+                            
+                            <li><a href="contact.html">Secure Printing</a>
+                            </li>
+                             <li><a href="contact.html">Contact </a>
+                            </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+            
+        </header> 
+        <!-- End Header Section -->
+        
+        
+        
+        <!-- Start Home Page Slider -->
+        <section id="home">
+            <!-- Carousel -->
+            <div id="main-slide" class="carousel slide" data-ride="carousel">
+
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#main-slide" data-slide-to="" class="active"></li>
+                    <li data-target="#main-slide" data-slide-to="1"></li>
+                    <li data-target="#main-slide" data-slide-to="2"></li>
+                    <li data-target="#main-slide" data-slide-to="3"></li>
+                </ol>
+                <!--/ Indicators end-->
+
+                <!-- Carousel inner -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <img class="img-responsive" src="images/slider/bg1.jpg" alt="slider" data-animation="animated fadeInDown">
+                        <div class="slider-content ">
+                            <div class="col-md-12 shift-text " style="margin-left: 5%;">
+                                <h2 class="animated2">
+                        		  <span>Conduct Exam Gets  <span style="color:#33cc33;">Better & Better</span> </span>
+                        	    </h2>
+                               
+                                <h3 class="animated3">
+                            		<span>Incredible features and options making it easy for the <br><br> user to Create, Share and Analyze the online test</span>
+                            	</h3>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Carousel item end -->
+                    <div class="item">
+                        <img class="img-responsive" src="images/slider/bg2.jpg" alt="slider" data-animation="animated flipInY" >
+                        <div class="slider-content  " >
+                            <div class="col-md-12 shift-text " style="margin-left: 5%;">
+                               <h2 class="animated2">
+                        		  <span>Conduct Exam Gets <span style="color:#33cc33;">Better & Better</span> </span>
+                        	    </h2>
+                               
+                                <h3 class="animated3">
+                            		<span>Incredible features and options making it easy for the <br><br> user to Create, Share and Analyze the online test</span>
+                            	</h3>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Carousel item end -->
+                    <div class="item">
+                        <img class="img-responsive" src="images/slider/bg3.jpg" alt="slider" data-animation="animated rotateInDownRight">
+                        <div class="slider-content ">
+                            <div class="col-md-12 shift-text " style="margin-left: 5%;">
+                               <h2 class="animated2">
+                        		  <span>Conduct Exam Gets <span style="color:#33cc33;">Better & Better</span> </span>
+                        	    </h2>
+                               
+                                <h3 class="animated3">
+                            		<span>Incredible features and options making it easy for the <br><br> user to Create, Share and Analyze the online test</span>
+                            	</h3>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <img class="img-responsive" src="images/slider/bg4.jpg" alt="slider" 
+                        data-animation="animated swing">
+                        <div class="slider-content ">
+                            <div class="col-md-12 shift-text " style="margin-left: 5%;">
+                               <h2 class="animated2">
+                        		  <span>Conduct Exam Gets <span style="color:#33cc33;">Better & Better</span> </span>
+                        	    </h2>
+                               
+                                <h3 class="animated3">
+                            		<span>Incredible features and options making it easy for the <br><br> user to Create, Share and Analyze the online test</span>
+                            	</h3>
+                               
+                            </div>
+                        </div>
+                    </div>
+                    <!--/ Carousel item end -->
+                </div>
+                <!-- Carousel inner end-->
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#main-slide" data-slide="prev">
+                    <span><i class="fa fa-angle-left"></i></span>
+                </a>
+                <a class="right carousel-control" href="#main-slide" data-slide="next">
+                    <span><i class="fa fa-angle-right"></i></span>
+                </a>
+            </div>
+            <!-- /carousel -->
+        </section>
+        <!-- End Home Page Slider -->
+        
+        
+        <!-- Start Services Section -->
+         <div class="gap gap-small"></div>
+         
+          <div class="container">
+          <div class="row">
+                    
+                   
+                    <div class="col-md-3 col-sm-6 service-box service-center animated fadeIn delay-01" data-animation="fadeIn" data-animation-delay="01">
+                        <div class="service-icon">
+                            <i class="fa fa-eye icon-large" style="width: 80px; line-height: 70px;text-align: center;border-radius: 50px; border: 4px solid #666;"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Our Vision</h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Lorem pariatur</p>
+
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-3 col-sm-6 service-box service-center animated fadeIn delay-02" data-animation="fadeIn" data-animation-delay="02">
+                        <div class="service-icon">
+                            <i class="fa fa-rocket icon-large" style="width: 80px; line-height: 70px;text-align: center;border-radius: 50px; border: 4px solid #666;"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Our Mission</h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Lorem pariatur</p>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-3 col-sm-6 service-box service-center animated fadeIn delay-03" data-animation="fadeIn" data-animation-delay="03">
+                        <div class="service-icon">
+                            <i class="fa fa-bolt icon-large" style="width: 80px; line-height: 70px;text-align: center;border-radius: 50px; border: 4px solid #666;"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>KES Strength</h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Lorem pariatur</p>
+                        </div>
+                    </div>
+                   
+                   <div class="col-md-3 col-sm-6 service-box service-center animated fadeIn delay-03" data-animation="fadeIn" data-animation-delay="03">
+                        <div class="service-icon">
+                            <i class="fa fa-star icon-large" style="width: 80px; line-height: 70px;text-align: center;border-radius: 50px; border: 4px solid #666;"></i>
+                        </div>
+                        <div class="service-content">
+                            <h4>Sailent Feature</h4>
+                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat Lorem pariatur</p>
+                        </div>
+                    </div>
+
+                </div>
+          
+          </div>
+        
+        
+       
+        <!-- End Services Section -->
+        
+        
+        <!-- Start Purchase Section -->
+      
+       
+        <div class="big-title"  style="font-size:30px;background: #f9f8f8; margin-bottom:0px; text-align:center;"data-animation="fadeInDown" data-animation-delay="01">
+                        <h1 style="font-weight: 400; font-size:30px; padding: 12px;     border: 1px solid #e0dede;">Industry <strong style="font-weight: 300;">We Cater</strong></h1>
+                        
+                    </div>
+             
+            
+        <div class="section purchase">
+            <div class="container">
+            
+                 
+                <!-- Start Video Section Content -->
+                <div class="parallax-text-container-1">
+               
+              <div class="parallax-text-item">
+              
+                
+                
+                
+                  <ul class="grid cs-style-4">
+				<li>
+					<figure>
+						<div><img src="images/5.png" alt="img05"></div>
+				  <figcaption>
+							<h3>For Academic</h3>
+							<span style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</span>
+							<a href="http://dribbble.com/shots/1116775-Safari">Read More</a>						</figcaption>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<div><img src="images/6.png" alt="img06"></div>
+				  <figcaption>
+							<h3>For Corporate</h3>
+							<span style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</span>
+							<a href="http://dribbble.com/shots/1118904-Game-Center">Read More</a>						</figcaption>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<div><img src="images/2.png" alt="img02"></div>
+				  <figcaption>
+							<h3>For Government</h3>
+							<span style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</span>
+							<a href="http://dribbble.com/shots/1115960-Music">Read More</a>						</figcaption>
+					</figure>
+				</li>
+				<li>
+					<figure>
+						<div><img src="images/3.png" alt="img04"></div>
+				  <figcaption>
+							<h3>For Professional Association</h3>
+							<span style="font-size: 14px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </span>
+							<a href="http://dribbble.com/shots/1116685-Settings">Read More</a>						</figcaption>
+					</figure>
+				</li>
+				
+			</ul>         
+               
+              </div>
+            </div>
+                <!-- End Section Content -->
+
+            </div><!-- .container -->
+        </div>
+        
+        
+        <!-- End Purchase Section -->
+        <div class="wall-bg">
+        <div class="container">
+        <div class="row pricing-tables">
+                        
+                        <div class="col-md-3 col-sm-3 col-xs-12 close-box">
+                           <div class="pricing-table">
+                            
+						    <div id="menCollection" class="carousel slide" data-ride="carousel">
+                              <div class="carousel-inner">
+                                <div class="item">
+                                    <a href="#"><img src="images/award_3.PNG" class="img-responsive" alt="product 1"  ></a>
+                                                                         
+                                   
+                                </div><!-- End Item -->
+                                <div class="item">
+                                    <a href="#"><img src="images/award_2.PNG" class="img-responsive" alt="product 1" ></a>
+                                                                           
+                                      
+                                </div><!-- End Item -->
+                                <div class="item active">
+                                    <a href="#"><img src="images/award.PNG" class="img-responsive" alt="product 1" ></a>
+                                                                        
+                                    
+                                </div><!-- End Item -->                                
+                              </div><!-- End Carousel Inner -->
+                              <!-- Controls -->
+                              <a class="left carousel-control" href="#menCollection" role="button" data-slide="prev">
+                               
+                                <span class="sr-only">Previous</span>
+                              </a>
+                              <a class="right carousel-control" href="#menCollection" role="button" data-slide="next">
+                               
+                                <span class="sr-only">Next</span>
+                              </a>
+                            </div>
+							<div class="basic-text"><i class="fa fa-trophy">&nbsp;</i>ISO Certified</div>
+							
+                            
+                            
+                             <div class="award-text"> We are ISO Certified
+                           <p style="font-weight:500; color:#333; text-transform: lowercase;">Solution Exam is an ISO 9001:2015 certified company in Centre Based Test, System Based Test, OMR Based Test,Secure Printing and Various types of exams.It's great that shows we are truly invested in deliver high quality solutions, 
+</p>
+                           </div>
+							
+							
+						
+						</div>
+                        </div>
+                        <div  class="col-md-3 col-sm-3 col-xs-12 close-box">
+                            <div class="pricing-table">
+                            
+							<img src="images/university.PNG" class="hover ehover2">
+								<div class="basic-text"><i class="fa fa-question-circle">&nbsp;</i>FAQ</div>
+							
+                            <div class="small-img">
+                           
+                            </div>
+                            
+                           <div class="award-text">
+                            What is Solution Exam ?
+                         
+                           <p style="font-weight:500; color:#333; text-transform: lowercase;">
+       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+      
+</p>
+  <div class="gap gap-small"></div>
+What we do ?
+ 
+                   <p style="font-weight:500; color:#333; text-transform: lowercase;">
+       Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
+      
+</p>
+                           </div>
+							
+							
+						
+						</div>
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-12 close-box">
+                           <div class="pricing-table">
+                            
+						    <img src="images/tweet.png">
+							<div class="basic-text"><i class="fa fa-users">&nbsp;</i>​Client Speak </div>
+							
+                            
+                            
+                             <div class="award-text">  Client Speak
+                           
+                           <p style="font-weight:500; color:#333; text-transform: lowercase;">No vis nibh zril, vis sint alienum in. Legere constituto quo ad, eu inani dictas ancillae sea. Vel paulo facilisis ea, 
+</p>
+                           </div>
+							
+							
+						
+						</div>
+                        </div>
+                        <div  class="col-md-3 col-sm-3 col-xs-12 close-box">
+                            <div class="pricing-table">
+                            
+							<img src="images/hire.png">
+								<div class="basic-text"><i class="fa fa fa-briefcase">&nbsp;</i>Career Opportunities    </div>
+							
+                          
+                            
+                        <div class="award-text-2"> 
+                           <ul>
+                        <a href="#"><li class="current-opening">CUSTOMER RELATION EXECUTIVE  </li></a>
+                         <a href="#"><li class="current-opening">CUSTOMER RELATION EXECUTIVE  </li></a>
+                          <a href="#"><li class="current-opening">CUSTOMER RELATION EXECUTIVE  </li></a>
+                           <a href="#"><li class="current-opening">CUSTOMER RELATION EXECUTIVE  </li>
+                        </a></ul><a href="#">
+                         </a><a href="#" class="btn-system btn-small view-all-btn ">View All</a>
+                           </div>
+							
+							
+						
+						</div>
+                        </div>
+                        
+                        
+                        
+                        
+						
+						
+					</div>
+                    
+        </div>
+        
+      
+        
+        
+       
+        </div>
+        
+        
+      
+     
+      
+      <iframe id="map"src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114542.81855857022!2d78.12085852951058!3d26.214138884651213!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976c5d1792291fb%3A0xff4fb56d65bc3adf!2sGwalior%2C+Madhya+Pradesh+474001!5e0!3m2!1sen!2sin!4v1470743799064" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+      </div>
+        <footer>
+            <div class="container">
+                <!-- .row -->
+
+                       <div class="row">
+              
+                 <div class="col-md-12">
+                 <ul class="footer-nav " style="margin-left: 30%;  ">
+                               <li style="    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    font-size: 20px;
+    color: black;
+    font-weight: 500;
+    margin-top: 15px;
+}">Follow us on</li><li class="social-media-icon-f"><i class="fa fa-facebook" ></i>
+                                </li>
+                                <li class="social-media-icon-t"><i class="fa fa-twitter" ></i>
+                               <li class="social-media-icon-gp"><i class="fa fa-google-plus" ></i>
+                                 <li class="social-media-icon-insta"><i class="  fa fa-instagram" ></i>
+                                
+                               
+                                
+                               
+                            </ul>
+                 <button type="button" class="btn-system btn-lg pull-right" style="background:#3387cc; margin-top:2px;" data-toggle="modal" data-target="#myModal">Give Suggesation</button>
+    
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h3 class="modal-title"><i class="fa fa-lightbulb-o"></i>&nbsp;&nbsp;Give Your Suggestion</h3>
+      </div>
+      <div class="modal-body">
+        <form role="form" class="contact-form" id="contact-form" method="post">
+    <div class="form-group">
+    <div class="controls">
+    <input type="text" placeholder="Your Mail" name="name">
+    </div>
+    </div>
+    
+    
+
+    <div class="form-group">
+
+    <div class="controls">
+    <textarea rows="4" placeholder="Your Suggestion" name="message"></textarea>
+    </div>
+    </div>
+    <button type="submit" id="submit" class="btn-system btn-large pull-right">Send</button><div id="success" style="color:#34495e;"></div>
+    </form>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+                 </div>
+                </div>
+                <div class="gap gap-small"></div>
+                <!-- Start Copyright -->
+                <div class="copyright-section">
+                
+                    <div class="row">
+                      
+                        <div class="col-md-12" >
+                            <ul class="footer-nav" >
+                             <li><a href="#">About</a>
+                                </li>
+                                <li><a href="#">Centre Based Test</a>
+                                </li>
+                                <li><a href="#">System Based Test</a>
+                                </li>
+                                <li><a href="#">OMR Based Test</a>
+                                </li>
+                                <li><a href="#">Secure Printing</a>
+                                </li>
+                                <li><a href="#">Contact </a>
+                                </li>
+                               
+                                
+                                 <li style="font-size:12px; font-weight:700; color:black">| Copyright&copy; 2014 <a href="# " style="font-weight:700; text-decoration:underline; font-size:small;">Solution Exam  </a>  -  All Rights Reserved 
+                             </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div>
+                <!-- End Copyright -->
+
+            </div>
+        </footer>
+        <!-- End Footer Section -->
+        
+        
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Go To Top Link -->
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+   
+    <!-- Style Switcher -->
+    
+
+</body>
+
+</html>
